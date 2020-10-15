@@ -31,8 +31,8 @@ function promptUser() {
     },
     {
       type: "input",
-      name: "officeNumber",
-      message: "Please enter your phone number:"
+      name: "school",
+      message: "Please enter your College or University:"
     },
       
   ]);
@@ -57,8 +57,8 @@ function generateHTML(answers) {
 <div class="card-body">
     <ul class="list-group">
         <li class="list-group-item">ID: ${answers.id}</li>
-        <li class="list-group-item">Email: <a href="mailto:${answers.email}">${answers.email}</a></li>
-        <li class="list-group-item">Office number: ${answers.officeNumber}</li>
+        <li class="list-group-item">Email: <a href="mailto: ${answers.email}">${answers.email}</a></li>
+        <li class="list-group-item">Education: ${answers.school}</a></li>
     </ul>
 </div>
 </div>
@@ -70,7 +70,7 @@ promptUser()
   .then(function(answers) {
     const html = generateHTML(answers);
 
-    return writeFileAsync("manager.html", html);
+    return writeFileAsync("intern.html", html);
   })
   .then(function() {
     console.log("Thank you for your information.");
