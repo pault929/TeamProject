@@ -9,19 +9,29 @@ function promptUser() {
   return inquirer.prompt([
     {
       type: "input",
-      name: "ID",
-      message: "Please enter your ID name or Number:"
+      name: "name",
+      message: "Please enter your name:"
+    },
+    {
+      type: "list",
+      name: "role",
+      message: "What is your job title:",
+      choices: ["Manager", "Engineer", "Intern"],
     },
     {
       type: "input",
-      name: "Email",
-      message: "Please enter our email address."
+      name: "id",
+      message:"Please enter your ID or Number:"
     },
-    
     {
       type: "input",
-      name: "Office Number",
-      message: "Please enter your phone number."
+      name: "email",
+      message: "Please enter our email address:"
+    },
+    {
+      type: "input",
+      name: "officeNumber",
+      message: "Please enter your phone number:"
     },
       
   ]);
@@ -40,14 +50,14 @@ function generateHTML(answers) {
 <body>
 <div class="card employee-card">
 <div class="card-header">
-    <h2 class="card-title">{{ name }}</h2>
-    <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>{{ role }}</h3>
+    <h2 class="card-title">${answers.name}</h2>
+    <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${answers.role}</h3>
 </div>
 <div class="card-body">
     <ul class="list-group">
-        <li class="list-group-item">ID: {{ id }}</li>
-        <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-        <li class="list-group-item">Office number: {{ officeNumber }}</li>
+        <li class="list-group-item">ID: ${answers.id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${answers.email}">${answers.email}</a></li>
+        <li class="list-group-item">Office number: ${answers.officeNumber}</li>
     </ul>
 </div>
 </div>

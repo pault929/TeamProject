@@ -1,0 +1,6 @@
+.node_modules/
+.ds_store/
+.package.json
+.package-lock.json
+.bash.exe.stackdump
+.
